@@ -1,0 +1,1439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UNSW Cyber Security - Complete Guide & Roadmap</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #0052B4; /* UNSW Blue */
+            --secondary: #FFC72C; /* UNSW Gold */
+            --accent: #D90000;
+            --light: #f8f9fa;
+            --dark: #212529;
+            --gray: #6c757d;
+            --success: #28a745;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f7fa;
+            color: var(--dark);
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary), #003d82);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        
+        .logo-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+        }
+        
+        .logo {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-right: 15px;
+        }
+        
+        .logo-subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        nav {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .nav-link {
+            padding: 1rem 1.5rem;
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border-bottom: 3px solid transparent;
+        }
+        
+        .nav-link:hover, .nav-link.active {
+            color: var(--primary);
+            border-bottom: 3px solid var(--primary);
+            background-color: rgba(0, 82, 180, 0.05);
+        }
+        
+        section {
+            padding: 4rem 0;
+            background-color: white;
+            margin-bottom: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .section-header h2 {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-header h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: var(--secondary);
+            border-radius: 2px;
+        }
+        
+        .section-header p {
+            color: var(--gray);
+            max-width: 700px;
+            margin: 1.5rem auto 0;
+        }
+        
+        .card-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-top: 4px solid var(--primary);
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+        }
+        
+        .card-header {
+            padding: 1.5rem;
+            background-color: rgba(0, 82, 180, 0.05);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+        
+        .card-body {
+            padding: 1.5rem;
+        }
+        
+        .card h3 {
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+        
+        .program-options {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            justify-content: center;
+            margin: 2rem 0;
+        }
+        
+        .program-card {
+            flex: 1;
+            min-width: 280px;
+            background: white;
+            border-radius: 8px;
+            padding: 2rem;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            text-align: center;
+            border-top: 4px solid var(--secondary);
+        }
+        
+        .program-card h3 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+        
+        .requirements-list {
+            list-style-type: none;
+        }
+        
+        .requirements-list li {
+            padding: 0.8rem 0;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            display: flex;
+            align-items: center;
+        }
+        
+        .requirements-list li:last-child {
+            border-bottom: none;
+        }
+        
+        .requirements-list li::before {
+            content: '✓';
+            color: var(--secondary);
+            font-weight: bold;
+            margin-right: 10px;
+            background-color: rgba(255, 199, 44, 0.2);
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .documents-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .document-item {
+            background: rgba(0, 82, 180, 0.05);
+            padding: 1.5rem;
+            border-radius: 8px;
+            text-align: center;
+        }
+        
+        .document-icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+        
+        .scholarship-card {
+            border-left: 4px solid var(--secondary);
+        }
+        
+        .tip-box {
+            background: rgba(255, 199, 44, 0.15);
+            border-left: 4px solid var(--secondary);
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .skill-item {
+            padding: 1.5rem;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+        
+        .skill-item:hover {
+            transform: translateY(-5px);
+        }
+        
+        .skill-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+        
+        .cost-breakdown {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            justify-content: center;
+            margin: 2rem 0;
+        }
+        
+        .cost-card {
+            flex: 1;
+            min-width: 250px;
+            background: white;
+            border-radius: 8px;
+            padding: 2rem;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            text-align: center;
+        }
+        
+        .cost-amount {
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--primary);
+            margin: 1rem 0;
+        }
+        
+        /* Roadmap Styles */
+        .roadmap-container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .roadmap-year {
+            margin-bottom: 3rem;
+            position: relative;
+        }
+        
+        .year-header {
+            background: var(--primary);
+            color: white;
+            padding: 1rem 1.5rem;
+            border-radius: 8px 8px 0 0;
+            display: flex;
+            align-items: center;
+        }
+        
+        .year-header h3 {
+            margin: 0;
+            font-size: 1.5rem;
+        }
+        
+        .year-badge {
+            background: var(--secondary);
+            color: var(--dark);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-weight: bold;
+            margin-left: auto;
+        }
+        
+        .year-content {
+            padding: 2rem;
+            background: white;
+            border-radius: 0 0 8px 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+        
+        .goal-box {
+            background: rgba(0, 82, 180, 0.05);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+            border-left: 4px solid var(--primary);
+        }
+        
+        .goal-box h4 {
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+        }
+        
+        .goal-box h4 i {
+            margin-right: 10px;
+        }
+        
+        .skills-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+        
+        .skill-tag {
+            background: rgba(0, 82, 180, 0.1);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            display: inline-block;
+            margin: 0.2rem;
+        }
+        
+        .tools-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin: 1rem 0;
+        }
+        
+        .tool-tag {
+            background: rgba(255, 199, 44, 0.2);
+            padding: 0.4rem 0.8rem;
+            border-radius: 4px;
+            font-size: 0.85rem;
+        }
+        
+        .certification-list {
+            margin-top: 1.5rem;
+        }
+        
+        .cert-item {
+            display: flex;
+            align-items: center;
+            padding: 0.8rem 0;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+        
+        .cert-item:last-child {
+            border-bottom: none;
+        }
+        
+        .cert-icon {
+            color: var(--success);
+            margin-right: 10px;
+            font-size: 1.2rem;
+        }
+        
+        .student-life {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .student-card {
+            flex: 1;
+            min-width: 250px;
+            background: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            text-align: center;
+        }
+        
+        .student-icon {
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn:hover {
+            background: #003d82;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .btn-secondary {
+            background: var(--secondary);
+            color: var(--dark);
+        }
+        
+        .btn-secondary:hover {
+            background: #e6b400;
+        }
+
+        /* Login Modal Styles */
+        .login-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .login-content {
+            background: white;
+            border-radius: 12px;
+            width: 90%;
+            max-width: 400px;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            text-align: center;
+        }
+
+        .login-content h2 {
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+        }
+
+        .login-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .form-group {
+            text-align: left;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 0.8rem 1rem;
+            border: 1px solid var(--gray);
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+
+        .login-btn {
+            width: 100%;
+            margin-top: 1rem;
+        }
+
+        .error-message {
+            color: var(--accent);
+            margin-top: 1rem;
+            display: none;
+        }
+
+        /* My Documents Section */
+        .my-documents {
+            display: none;
+        }
+
+        .documents-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .document-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease;
+        }
+
+        .document-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .document-preview {
+            height: 200px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #f8f9fa;
+        }
+
+        .document-preview img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+
+        .document-info {
+            padding: 1.5rem;
+        }
+
+        .document-info h4 {
+            margin-bottom: 0.5rem;
+            color: var(--primary);
+        }
+
+        .document-actions {
+            display: flex;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .btn-sm {
+            padding: 0.5rem 1rem;
+            font-size: 0.85rem;
+        }
+
+        .login-btn-container {
+            text-align: center;
+            margin: 2rem 0;
+        }
+        
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+        }
+        
+        .footer-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin: 1.5rem 0;
+            flex-wrap: wrap;
+        }
+        
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            color: var(--secondary);
+        }
+        
+        .copyright {
+            margin-top: 2rem;
+            opacity: 0.7;
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .nav-container {
+                flex-wrap: wrap;
+            }
+            
+            .nav-link {
+                padding: 0.8rem 1rem;
+                font-size: 0.9rem;
+            }
+            
+            section {
+                padding: 2.5rem 0;
+            }
+            
+            .program-options, .cost-breakdown {
+                flex-direction: column;
+            }
+            
+            .year-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .year-badge {
+                margin-left: 0;
+                margin-top: 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Login Modal -->
+    <div class="login-modal" id="loginModal">
+        <div class="login-content">
+            <h2><i class="fas fa-lock"></i> Secure Login</h2>
+            <p>Enter password to access your personal documents</p>
+            <div class="login-form">
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" class="form-control" placeholder="Enter your password">
+                </div>
+                <button class="btn login-btn" onclick="checkLogin()">Login</button>
+                <div class="error-message" id="loginError">
+                    <i class="fas fa-exclamation-circle"></i> Incorrect password. Please try again.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <header>
+        <div class="container">
+            <div class="logo-container">
+                <div class="logo">UNSW</div>
+                <div class="logo-subtitle">Sydney | Kensington Campus</div>
+            </div>
+            <h1>Cyber Security Programs</h1>
+            <p class="subtitle">Your complete guide to Bachelor's degrees in Cyber Security at UNSW Sydney with 4-Year Roadmap</p>
+        </div>
+    </header>
+    
+    <nav>
+        <div class="container nav-container">
+            <a href="#apply" class="nav-link active">How to Apply</a>
+            <a href="#scholarships" class="nav-link">Scholarships</a>
+            <a href="#preparation" class="nav-link">Preparation</a>
+            <a href="#roadmap" class="nav-link">Cyber Security Roadmap</a>
+            <a href="#costs" class="nav-link">Costs & Funding</a>
+            <a href="#student-life" class="nav-link">Student Life</a>
+            <a href="#my-documents" class="nav-link" id="documentsNav">My Documents</a>
+        </div>
+    </nav>
+    
+    <main class="container">
+        <section id="apply">
+            <div class="section-header">
+                <h2>How to Apply</h2>
+                <p>Follow these steps to apply for Cyber Security programs at UNSW</p>
+            </div>
+            
+            <div class="program-options">
+                <div class="program-card">
+                    <h3>Bachelor of Cyber Security</h3>
+                    <p>A dedicated degree focused entirely on cybersecurity principles, tools, and practices.</p>
+                </div>
+                <div class="program-card">
+                    <h3>Bachelor of Computer Science</h3>
+                    <p>With Cyber Security Specialization - Broader computing foundation with security focus.</p>
+                </div>
+            </div>
+            
+            <div class="card">
+                <div class="card-header">
+                    <h3>Campus: Kensington, Sydney</h3>
+                </div>
+                <div class="card-body">
+                    <p>UNSW's main campus located in Kensington, Sydney, offers state-of-the-art facilities for cyber security students including dedicated security labs and industry partnerships.</p>
+                </div>
+            </div>
+            
+            <div class="card-container">
+                <div class="card">
+                    <div class="card-header">
+                        <h3>Check Entry Requirements</h3>
+                    </div>
+                    <div class="card-body">
+                        <ul class="requirements-list">
+                            <li>High school completed (Grade 12 or equivalent)</li>
+                            <li>Strong math background</li>
+                            <li>English test: IELTS ≥ 6.5 / TOEFL ≥ 90 / PTE ≥ 64</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-header">
+                        <h3>Prepare Documents</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="documents-grid">
+                            <div class="document-item">
+                                <div class="document-icon"><i class="fas fa-graduation-cap"></i></div>
+                                <h4>High School Transcripts</h4>
+                                <p>Official academic records</p>
+                            </div>
+                            <div class="document-item">
+                                <div class="document-icon"><i class="fas fa-language"></i></div>
+                                <h4>English Test Score</h4>
+                                <p>IELTS, TOEFL, or PTE results</p>
+                            </div>
+                            <div class="document-item">
+                                <div class="document-icon"><i class="fas fa-passport"></i></div>
+                                <h4>Passport Copy</h4>
+                                <p>Valid passport identification page</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-header">
+                        <h3>Apply Online</h3>
+                    </div>
+                    <div class="card-body">
+                        <p>Submit your application through UNSW International</p>
+                        <a href="https://www.unsw.edu.au/study/international" class="btn" target="_blank">Apply Now</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card">
+                <div class="card-header">
+                    <h3>Offer & Acceptance</h3>
+                </div>
+                <div class="card-body">
+                    <p>If accepted, you may need to pay a tuition deposit to secure your spot in the program.</p>
+                </div>
+            </div>
+        </section>
+        
+        <section id="scholarships">
+            <div class="section-header">
+                <h2>Scholarships</h2>
+                <p>Financial support options for international students</p>
+            </div>
+            
+            <div class="card-container">
+                <div class="card scholarship-card">
+                    <div class="card-header">
+                        <h3>International Scientia Coursework Scholarship</h3>
+                    </div>
+                    <div class="card-body">
+                        <p>Covers full tuition or provides partial funding for high-achieving international students.</p>
+                    </div>
+                </div>
+                
+                <div class="card scholarship-card">
+                    <div class="card-header">
+                        <h3>Vice-Chancellor's International Scholarships</h3>
+                    </div>
+                    <div class="card-body">
+                        <p>Partial tuition scholarships awarded based on academic merit.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="tip-box">
+                <h3><i class="fas fa-lightbulb"></i> Pro Tip</h3>
+                <p>Apply for scholarships at the same time you apply to the university to maximize your chances of receiving financial aid.</p>
+            </div>
+            
+            <div style="text-align: center; margin-top: 2rem;">
+                <a href="https://www.unsw.edu.au/scholarships" class="btn btn-secondary" target="_blank">Check Scholarship Eligibility</a>
+            </div>
+        </section>
+        
+        <section id="preparation">
+            <div class="section-header">
+                <h2>Preparation Before University</h2>
+                <p>Get a head start in your cyber security journey</p>
+            </div>
+            
+            <div class="skills-grid">
+                <div class="skill-item">
+                    <div class="skill-icon"><i class="fab fa-python"></i></div>
+                    <h3>Learn Python & Bash</h3>
+                    <p>Essential scripting languages for security automation and tool development.</p>
+                </div>
+                
+                <div class="skill-item">
+                    <div class="skill-icon"><i class="fab fa-linux"></i></div>
+                    <h3>Master Linux</h3>
+                    <p>Become proficient with Linux command line and system administration.</p>
+                </div>
+                
+                <div class="skill-item">
+                    <div class="skill-icon"><i class="fas fa-shield-alt"></i></div>
+                    <h3>Ethical Hacking Practice</h3>
+                    <p>Use platforms like TryHackMe and HackTheBox to develop practical skills.</p>
+                </div>
+                
+                <div class="skill-item">
+                    <div class="skill-icon"><i class="fas fa-network-wired"></i></div>
+                    <h3>Networking & Servers</h3>
+                    <p>Understand basic networking concepts and server management principles.</p>
+                </div>
+            </div>
+            
+            <div class="card">
+                <div class="card-header">
+                    <h3>Build a Portfolio</h3>
+                </div>
+                <div class="card-body">
+                    <p>Create a collection of projects to demonstrate your skills:</p>
+                    <ul class="requirements-list">
+                        <li>Network scanners and security tools</li>
+                        <li>Automation scripts for security tasks</li>
+                        <li>Web application testing tools</li>
+                        <li>Documented vulnerability research</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        
+        <section id="roadmap">
+            <div class="section-header">
+                <h2>Cyber Security Roadmap</h2>
+                <p>A comprehensive 4-year plan for your cybersecurity career at UNSW</p>
+            </div>
+            
+            <div class="roadmap-container">
+                <!-- Year 0 -->
+                <div class="roadmap-year">
+                    <div class="year-header">
+                        <h3>Year 0 / Before University</h3>
+                        <div class="year-badge">Preparation Phase</div>
+                    </div>
+                    <div class="year-content">
+                        <div class="goal-box">
+                            <h4><i class="fas fa-bullseye"></i> Goal</h4>
+                            <p>Build foundation & portfolio for UNSW + scholarships</p>
+                        </div>
+                        
+                        <h4><i class="fas fa-code"></i> Programming & Scripting</h4>
+                        <div class="skills-list">
+                            <span class="skill-tag">Python (automation, scanners)</span>
+                            <span class="skill-tag">Bash/Linux scripting</span>
+                            <span class="skill-tag">Basic C/C++</span>
+                        </div>
+                        
+                        <h4><i class="fas fa-server"></i> Networking & Server Basics</h4>
+                        <div class="skills-list">
+                            <span class="skill-tag">TCP/IP, routers, firewalls, VPNs</span>
+                            <span class="skill-tag">Set up your own Linux server</span>
+                            <span class="skill-tag">Practice securing servers</span>
+                        </div>
+                        
+                        <h4><i class="fas fa-user-secret"></i> Ethical Hacking Labs</h4>
+                        <div class="tools-list">
+                            <span class="tool-tag">HackTheBox</span>
+                            <span class="tool-tag">TryHackMe</span>
+                            <span class="tool-tag">VulnHub</span>
+                        </div>
+                        <p>Focus on web vulnerabilities (XSS, SQLi) legally. Document projects to build portfolio.</p>
+                        
+                        <h4><i class="fas fa-award"></i> Certifications (Optional but helpful)</h4>
+                        <div class="certification-list">
+                            <div class="cert-item">
+                                <i class="fas fa-certificate cert-icon"></i>
+                                <div>
+                                    <strong>CompTIA Security+</strong> - Fundamentals
+                                </div>
+                            </div>
+                            <div class="cert-item">
+                                <i class="fas fa-certificate cert-icon"></i>
+                                <div>
+                                    <strong>Linux Essentials</strong> - Linux basics
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Year 1 -->
+                <div class="roadmap-year">
+                    <div class="year-header">
+                        <h3>Year 1 - Build Professional Foundation</h3>
+                        <div class="year-badge">UNSW 1st Year</div>
+                    </div>
+                    <div class="year-content">
+                        <div class="goal-box">
+                            <h4><i class="fas fa-bullseye"></i> Goal</h4>
+                            <p>Core foundation in IT + cybersecurity basics</p>
+                        </div>
+                        
+                        <h4><i class="fas fa-book"></i> Subjects</h4>
+                        <div class="skills-list">
+                            <span class="skill-tag">Programming: Python, C</span>
+                            <span class="skill-tag">Computer networks & protocols</span>
+                            <span class="skill-tag">Operating Systems: Linux, Windows</span>
+                            <span class="skill-tag">Security fundamentals</span>
+                        </div>
+                        
+                        <h4><i class="fas fa-laptop-code"></i> Practice</h4>
+                        <p>Continue ethical hacking labs. Start small security projects:</p>
+                        <div class="tools-list">
+                            <span class="tool-tag">Port scanner</span>
+                            <span class="tool-tag">Vulnerability scanner</span>
+                            <span class="tool-tag">Web security testing scripts</span>
+                        </div>
+                        
+                        <div class="tip-box">
+                            <h4><i class="fas fa-network-wired"></i> Networking Focus</h4>
+                            <p>Since you already know offensive basics, focus on networking: TCP/IP, Routing, VPN, Firewalls, Linux server administration (Ubuntu, Debian, CentOS). Real hackers attack networks & servers.</p>
+                        </div>
+                        
+                        <h4><i class="fas fa-tools"></i> Tools to Practice</h4>
+                        <div class="tools-list">
+                            <span class="tool-tag">Wireshark</span>
+                            <span class="tool-tag">Burp Suite Community</span>
+                            <span class="tool-tag">Nmap</span>
+                            <span class="tool-tag">Metasploit</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Year 2 -->
+                <div class="roadmap-year">
+                    <div class="year-header">
+                        <h3>Year 2 - Move to Advanced Security</h3>
+                        <div class="year-badge">UNSW 2nd Year</div>
+                    </div>
+                    <div class="year-content">
+                        <div class="goal-box">
+                            <h4><i class="fas fa-bullseye"></i> Goal</h4>
+                            <p>Hands-on security skills & penetration testing</p>
+                        </div>
+                        
+                        <h4><i class="fas fa-book"></i> Subjects</h4>
+                        <div class="skills-list">
+                            <span class="skill-tag">Advanced networking & server security</span>
+                            <span class="skill-tag">Web & cloud application security</span>
+                            <span class="skill-tag">Intro to malware analysis</span>
+                        </div>
+                        
+                        <h4><i class="fas fa-fire"></i> Ethical Hacking & Penetration Testing</h4>
+                        <p>Practice in legal environments like:</p>
+                        <div class="tools-list">
+                            <span class="tool-tag">TryHackMe</span>
+                            <span class="tool-tag">HackTheBox</span>
+                            <span class="tool-tag">VulnHub</span>
+                        </div>
+                        
+                        <h4><i class="fas fa-graduation-cap"></i> Learn</h4>
+                        <div class="skills-list">
+                            <span class="skill-tag">Secure coding</span>
+                            <span class="skill-tag">Advanced privilege escalation</span>
+                            <span class="skill-tag">Vulnerability discovery</span>
+                            <span class="skill-tag">Web app exploitation</span>
+                        </div>
+                        
+                        <h4><i class="fas fa-laptop-code"></i> Practice / Projects</h4>
+                        <div class="skills-list">
+                            <span class="skill-tag">Build penetration testing toolkit</span>
+                            <span class="skill-tag">Secure Linux server / home lab</span>
+                            <span class="skill-tag">Participate in CTF competitions</span>
+                        </div>
+                        
+                        <h4><i class="fas fa-award"></i> Certifications</h4>
+                        <div class="certification-list">
+                            <div class="cert-item">
+                                <i class="fas fa-certificate cert-icon"></i>
+                                <div>
+                                    <strong>CEH</strong> - Certified Ethical Hacker
+                                </div>
+                            </div>
+                            <div class="cert-item">
+                                <i class="fas fa-certificate cert-icon"></i>
+                                <div>
+                                    <strong>CompTIA Network+</strong> - If needed
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="tip-box">
+                            <h4><i class="fas fa-exclamation-triangle"></i> Important</h4>
+                            <p>Focus on legal penetration testing, bug bounties, auditing & red-team skills.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Year 3 -->
+                <div class="roadmap-year">
+                    <div class="year-header">
+                        <h3>Year 3 - Become Cyber Security Engineer</h3>
+                        <div class="year-badge">UNSW 3rd Year</div>
+                    </div>
+                    <div class="year-content">
+                        <div class="goal-box">
+                            <h4><i class="fas fa-bullseye"></i> Goal</h4>
+                            <p>Advanced specialization & defensive skills</p>
+                        </div>
+                        
+                        <h4><i class="fas fa-book"></i> Subjects</h4>
+                        <div class="skills-list">
+                            <span class="skill-tag">Ethical Hacking / Pen Testing (deep)</span>
+                            <span class="skill-tag">Malware analysis & threat intelligence</span>
+                            <span class="skill-tag">Network & server hardening</span>
+                            <span class="skill-tag">Cloud security (AWS/Azure basics)</span>
+                        </div>
+                        
+                        <h4><i class="fas fa-shield-alt"></i> Switch from attacking to defending</h4>
+                        <p>Now focus on defensive security skills:</p>
+                        
+                        <h5><i class="fas fa-server"></i> Server & Infrastructure Security</h5>
+                        <div class="skills-list">
+                            <span class="skill-tag">Hardening Linux</span>
+                            <span class="skill-tag">Secure cloud servers (AWS/Azure)</span>
+                            <span class="skill-tag">Log analysis & intrusion detection</span>
+                            <span class="skill-tag">SIEM & monitoring</span>
+                        </div>
+                        
+                        <h5><i class="fas fa-users"></i> Blue-team skills</h5>
+                        <div class="skills-list">
+                            <span class="skill-tag">Incident response</span>
+                            <span class="skill-tag">Threat intelligence</span>
+                            <span class="skill-tag">Malware analysis basics</span>
+                        </div>
+                        
+                        <h4><i class="fas fa-laptop-code"></i> Practice</h4>
+                        <div class="skills-list">
+                            <span class="skill-tag">Red team labs → penetration testing</span>
+                            <span class="skill-tag">Blue team labs → defending servers</span>
+                            <span class="skill-tag">Build automation scripts for security</span>
+                        </div>
+                        
+                        <h4><i class="fas fa-award"></i> Certifications</h4>
+                        <div class="certification-list">
+                            <div class="cert-item">
+                                <i class="fas fa-certificate cert-icon"></i>
+                                <div>
+                                    <strong>OSCP</strong> - Offensive Security Certified Professional
+                                </div>
+                            </div>
+                            <div class="cert-item">
+                                <i class="fas fa-certificate cert-icon"></i>
+                                <div>
+                                    <strong>AWS / Azure Security Fundamentals</strong>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Year 4 -->
+                <div class="roadmap-year">
+                    <div class="year-header">
+                        <h3>Year 4 - Specialize</h3>
+                        <div class="year-badge">UNSW 4th Year</div>
+                    </div>
+                    <div class="year-content">
+                        <div class="goal-box">
+                            <h4><i class="fas fa-bullseye"></i> Goal</h4>
+                            <p>Mastery + professional readiness</p>
+                        </div>
+                        
+                        <h4><i class="fas fa-book"></i> Subjects</h4>
+                        <div class="skills-list">
+                            <span class="skill-tag">Advanced penetration testing</span>
+                            <span class="skill-tag">Security management & policy</span>
+                            <span class="skill-tag">Capstone project</span>
+                        </div>
+                        
+                        <h4><i class="fas fa-road"></i> Choose ONE specialization area</h4>
+                        <div class="skills-list">
+                            <span class="skill-tag">Penetration Tester (Red Team)</span>
+                            <span class="skill-tag">Security Engineer (protect systems)</span>
+                            <span class="skill-tag">Security Automation / Tool Developer</span>
+                        </div>
+                        
+                        <h4><i class="fas fa-project-diagram"></i> Portfolio / Projects</h4>
+                        <div class="skills-list">
+                            <span class="skill-tag">Advanced vulnerability scanner</span>
+                            <span class="skill-tag">Incident response scripts</span>
+                            <span class="skill-tag">Security monitoring dashboards</span>
+                        </div>
+                        
+                        <h4><i class="fas fa-briefcase"></i> Career Prep</h4>
+                        <div class="skills-list">
+                            <span class="skill-tag">Internship in Cybersecurity</span>
+                            <span class="skill-tag">Apply for jobs</span>
+                            <span class="skill-tag">Build professional network</span>
+                        </div>
+                        
+                        <div class="tip-box">
+                            <h4><i class="fas fa-code"></i> Extra for Tool Developers</h4>
+                            <p>Instead of DDoS tools (illegal), build: Vulnerability scanners, Port scanners, Log monitoring tools, Web security testing frameworks, Server protection scripts. That is real job skill and safe.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="costs">
+            <div class="section-header">
+                <h2>Costs & Funding</h2>
+                <p>Understanding tuition and living expenses</p>
+            </div>
+            
+            <div class="cost-breakdown">
+                <div class="cost-card">
+                    <h3>Annual Tuition</h3>
+                    <div class="cost-amount">$40,000 - $45,000</div>
+                    <p>USD per year for international students</p>
+                </div>
+                
+                <div class="cost-card">
+                    <h3>Living Expenses</h3>
+                    <div class="cost-amount">$10,000 - $15,000</div>
+                    <p>USD per year in Sydney</p>
+                </div>
+            </div>
+            
+            <div class="card">
+                <div class="card-header">
+                    <h3>Total Estimated Cost</h3>
+                </div>
+                <div class="card-body">
+                    <p style="text-align: center; font-size: 1.5rem; font-weight: bold; color: var(--primary);">
+                        $50,000 - $55,000 USD per year
+                    </p>
+                    <p style="text-align: center; margin-top: 1rem;">
+                        Scholarships can significantly reduce tuition costs, making education more affordable.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="tip-box">
+                <h3><i class="fas fa-money-bill-wave"></i> Financial Planning</h3>
+                <p>Consider different funding options including scholarships, part-time work (up to 40 hours per fortnight for international students), and education loans.</p>
+            </div>
+        </section>
+        
+        <section id="student-life">
+            <div class="section-header">
+                <h2>Student Life at UNSW Kensington</h2>
+                <p>Experience campus life in Sydney</p>
+            </div>
+            
+            <div class="student-life">
+                <div class="student-card">
+                    <div class="student-icon"><i class="fas fa-home"></i></div>
+                    <h3>Accommodation</h3>
+                    <p>On-campus colleges, apartments, or off-campus housing options near Kensington campus.</p>
+                </div>
+                
+                <div class="student-card">
+                    <div class="student-icon"><i class="fas fa-utensils"></i></div>
+                    <h3>Food & Dining</h3>
+                    <p>Multiple food courts, cafes, and restaurants on campus with diverse cuisine options.</p>
+                </div>
+                
+                <div class="student-card">
+                    <div class="student-icon"><i class="fas fa-users"></i></div>
+                    <h3>Student Clubs</h3>
+                    <p>Join cybersecurity clubs, hacking societies, and other student organizations.</p>
+                </div>
+                
+                <div class="student-card">
+                    <div class="student-icon"><i class="fas fa-briefcase"></i></div>
+                    <h3>Career Support</h3>
+                    <p>Career fairs, industry partnerships, and internship opportunities with leading tech companies.</p>
+                </div>
+            </div>
+            
+            <div class="card">
+                <div class="card-header">
+                    <h3>Cyber Security Facilities</h3>
+                </div>
+                <div class="card-body">
+                    <p>UNSW Kensington campus offers specialized facilities for cybersecurity students:</p>
+                    <ul class="requirements-list">
+                        <li>Dedicated cybersecurity labs with enterprise-grade equipment</li>
+                        <li>Access to virtualized environments for penetration testing</li>
+                        <li>Security operations center (SOC) simulation environment</li>
+                        <li>Industry partnerships with leading security firms</li>
+                        <li>Regular workshops and guest lectures from industry experts</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- My Documents Section (Hidden until login) -->
+        <section id="my-documents" class="my-documents">
+            <div class="section-header">
+                <h2><i class="fas fa-folder"></i> My Documents</h2>
+                <p>Your personal application documents - Securely stored</p>
+            </div>
+
+            <div class="login-btn-container">
+                <button class="btn" onclick="openLoginModal()">
+                    <i class="fas fa-lock"></i> Login to View Documents
+                </button>
+            </div>
+
+            <div class="documents-container" id="documentsContainer" style="display: none;">
+                <div class="document-card">
+                    <div class="document-preview">
+                        <img src="https://i.postimg.cc/RZh600Rk/picutre-with-white-uniform-kys.jpg" alt="Student Photo">
+                    </div>
+                    <div class="document-info">
+                        <h4>Student Photo</h4>
+                        <p>Personal identification photo for application</p>
+                        <div class="document-actions">
+                            <button class="btn btn-sm"><i class="fas fa-eye"></i> View</button>
+                            <button class="btn btn-sm btn-secondary"><i class="fas fa-download"></i> Download</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="document-card">
+                    <div class="document-preview" style="background: #f8f9fa; display: flex; align-items: center; justify-content: center;">
+                        <i class="fas fa-passport" style="font-size: 3rem; color: var(--primary);"></i>
+                    </div>
+                    <div class="document-info">
+                        <h4>Passport Copy</h4>
+                        <p>International passport identification page</p>
+                        <div class="document-actions">
+                            <button class="btn btn-sm"><i class="fas fa-eye"></i> View</button>
+                            <button class="btn btn-sm btn-secondary"><i class="fas fa-download"></i> Download</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="document-card">
+                    <div class="document-preview" style="background: #f8f9fa; display: flex; align-items: center; justify-content: center;">
+                        <i class="fas fa-graduation-cap" style="font-size: 3rem; color: var(--primary);"></i>
+                    </div>
+                    <div class="document-info">
+                        <h4>High School Transcript</h4>
+                        <p>Official academic records and grades</p>
+                        <div class="document-actions">
+                            <button class="btn btn-sm"><i class="fas fa-eye"></i> View</button>
+                            <button class="btn btn-sm btn-secondary"><i class="fas fa-download"></i> Download</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="document-card">
+                    <div class="document-preview" style="background: #f8f9fa; display: flex; align-items: center; justify-content: center;">
+                        <i class="fas fa-language" style="font-size: 3rem; color: var(--primary);"></i>
+                    </div>
+                    <div class="document-info">
+                        <h4>English Test Score</h4>
+                        <p>IELTS, TOEFL, or PTE test results</p>
+                        <div class="document-actions">
+                            <button class="btn btn-sm"><i class="fas fa-eye"></i> View</button>
+                            <button class="btn btn-sm btn-secondary"><i class="fas fa-download"></i> Download</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="document-card">
+                    <div class="document-preview" style="background: #f8f9fa; display: flex; align-items: center; justify-content: center;">
+                        <i class="fas fa-file-upload" style="font-size: 3rem; color: var(--primary);"></i>
+                    </div>
+                    <div class="document-info">
+                        <h4>Upload New Document</h4>
+                        <p>Add additional documents to your application</p>
+                        <div class="document-actions">
+                            <button class="btn btn-sm"><i class="fas fa-upload"></i> Upload</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <footer>
+        <div class="container footer-content">
+            <h3>UNSW Sydney</h3>
+            <p>One of the world's leading research and teaching universities</p>
+            
+            <div class="footer-links">
+                <a href="https://www.unsw.edu.au" target="_blank">Official Website</a>
+                <a href="https://www.unsw.edu.au/study/international" target="_blank">International Students</a>
+                <a href="https://www.unsw.edu.au/scholarships" target="_blank">Scholarships</a>
+                <a href="https://www.unsw.edu.au/engineering/our-schools/computer-science-and-engineering" target="_blank">Computer Science</a>
+            </div>
+            
+            <p class="copyright">© 2023 UNSW Sydney. This is a demonstration page for informational purposes.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Login functionality
+        const correctPassword = "Dyma KYS";
+        let isLoggedIn = false;
+
+        function openLoginModal() {
+            document.getElementById('loginModal').style.display = 'flex';
+            document.getElementById('password').value = '';
+            document.getElementById('loginError').style.display = 'none';
+        }
+
+        function checkLogin() {
+            const enteredPassword = document.getElementById('password').value;
+            
+            if (enteredPassword === correctPassword) {
+                isLoggedIn = true;
+                document.getElementById('loginModal').style.display = 'none';
+                document.getElementById('documentsContainer').style.display = 'grid';
+                document.querySelector('.login-btn-container').style.display = 'none';
+                alert('Login successful! You can now view your documents.');
+            } else {
+                document.getElementById('loginError').style.display = 'block';
+            }
+        }
+
+        // Close modal when clicking outside
+        window.addEventListener('click', function(event) {
+            if (event.target === document.getElementById('loginModal')) {
+                document.getElementById('loginModal').style.display = 'none';
+            }
+        });
+
+        // Navigation highlighting
+        document.addEventListener('DOMContentLoaded', function() {
+            const navLinks = document.querySelectorAll('.nav-link');
+            const sections = document.querySelectorAll('section');
+            
+            // Function to update active nav link
+            function updateActiveNav() {
+                let current = '';
+                
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.clientHeight;
+                    if (scrollY >= (sectionTop - 200)) {
+                        current = section.getAttribute('id');
+                    }
+                });
+                
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href').substring(1) === current) {
+                        link.classList.add('active');
+                    }
+                });
+            }
+            
+            // Update on scroll
+            window.addEventListener('scroll', updateActiveNav);
+            
+            // Smooth scrolling for navigation links
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    const targetSection = document.querySelector(targetId);
+                    
+                    // If trying to access documents without login, show login modal
+                    if (targetId === '#my-documents' && !isLoggedIn) {
+                        openLoginModal();
+                        return;
+                    }
+                    
+                    window.scrollTo({
+                        top: targetSection.offsetTop - 100,
+                        behavior: 'smooth'
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html>
